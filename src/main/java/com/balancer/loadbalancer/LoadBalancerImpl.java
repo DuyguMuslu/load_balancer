@@ -73,16 +73,6 @@ public class LoadBalancerImpl implements LoadBalancer {
     }
 
     @Override
-    public Map<String, Integer> getDistribution() {
-        return this.threadDistribution;
-    }
-
-    @Override
-    public void clearDistribution() {
-        this.threadDistribution.clear();
-    }
-
-    @Override
     public void setInvocationType(InvocationType invocationType) {
         this.invocationType = invocationType;
     }
@@ -90,5 +80,15 @@ public class LoadBalancerImpl implements LoadBalancer {
     @Override
     public InvocationType getInvocationType() {
         return invocationType;
+    }
+
+    @Override
+    public Map<String, Integer> getDistribution() {
+        return this.threadDistribution;
+    }
+
+    @Override
+    public void clearDistribution() {
+        this.threadDistribution.clear();
     }
 }

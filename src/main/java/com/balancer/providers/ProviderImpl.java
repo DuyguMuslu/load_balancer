@@ -40,16 +40,6 @@ public class ProviderImpl implements Provider, ThreadExecutionListener {
         return this.status;
     }
 
-    @Override
-    public Future invokeProvider(Callable func) {
-        Future invocation = executor.submit(func);
-        if (this.status == ProviderStatus.IN_SERVICE && (executor.getTaskCount() - executor.getCompletedTaskCount()) >= executor.getMaximumPoolSize()) {
-            logger.info("Reached max numbers of threads for " + uuid.toString() + ". switch to full status");
-            this.status = ProviderStatus.FULL_OF_SERVICE;
-            providerStatusListener.providerStatusChanged(this, status);
-        }
-        return invocation;
-    }
 
     @Override
     public void checkProvider() {
@@ -71,6 +61,17 @@ public class ProviderImpl implements Provider, ThreadExecutionListener {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public Future invokeProvider(Callable func) {
+        Future invocation = executor.submit(func);
+        if (this.status == ProviderStatus.IN_SERVICE && (executor.getTaskCount() - executor.getCompletedTaskCount()) >= executor.getMaximumPoolSize()) {
+            logger.info("Reached max numbers of threads for " + uuid.toString() + ". switch to full status");
+            this.status = ProviderStatus.FULL_OF_SERVICE;
+            providerStatusListener.providerStatusChanged(this, status);
+        }
+        return invocation;
     }
 
     @Override

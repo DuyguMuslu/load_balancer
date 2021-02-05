@@ -18,12 +18,12 @@ class LoadBalancerImplTest {
     void testDefaultLoadBalancerBuild() {
         LoadBalancerImpl loadBalancer = (LoadBalancerImpl) new LoadBalancerBuilder().build();
 
-        assertEquals(ConfigProvider.getConfig().getLoadBalancer().getDefaultStrategy(), loadBalancer.getInvocationType());
+        assertEquals(ConfigProvider.getConfig().getLoadBalancer().getInvocationType(), loadBalancer.getInvocationType());
     }
 
     @Test
-    void testCustomStrategyLoadBalancerBuild() {
-        LoadBalancerImpl loadBalancer = (LoadBalancerImpl) new LoadBalancerBuilder().withBalancingStrategy(InvocationType.ROUND_ROBIN).build();
+    void testCustomInvocationTypeLoadBalancerBuild() {
+        LoadBalancerImpl loadBalancer = (LoadBalancerImpl) new LoadBalancerBuilder().withBalancingInvocationType(InvocationType.ROUND_ROBIN).build();
 
         assertEquals(InvocationType.ROUND_ROBIN, loadBalancer.getInvocationType());
     }

@@ -9,11 +9,11 @@ public class LoadBalancerConfig {
 
     private int maxConcurrentWorkersPerProvider;
 
-    public InvocationType getDefaultStrategy() {
+    public InvocationType getInvocationType() {
         return invocationType;
     }
 
-    public void setDefaultStrategy(InvocationType invocationType) {
+    public void setInvocationType(InvocationType invocationType) {
         this.invocationType = invocationType;
     }
 

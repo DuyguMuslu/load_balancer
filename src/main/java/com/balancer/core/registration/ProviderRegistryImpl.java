@@ -25,7 +25,7 @@ public class ProviderRegistryImpl implements ProviderRegistry {
         this.availableProviders = Collections.synchronizedList(new ArrayList<>());
     }
 
-       @Override
+    @Override
     public synchronized void registerProvider(Provider provider) throws RegistryOperationException {
         if (availableProviders.size() >= registryConfig.getMaxAllowedRegisteredProviders()) {
             throw new RegistryOperationException("Maximum providers limit reached");

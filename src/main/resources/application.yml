@@ -3,5 +3,5 @@ registry:
   healthCheckFrequencyMillis: 3000
   healthCheckRequestTimeoutMillis: 5000
 loadBalancer:
-  defaultStrategy: "RANDOM"
+  invocationType: "RANDOM"
   maxConcurrentWorkersPerProvider: 5

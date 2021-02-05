@@ -14,11 +14,11 @@ public class LoadBalancerBuilder {
 
     public LoadBalancerBuilder() {
         ApplicationConfig config = ConfigProvider.getConfig();
-        this.invocationType = config.getLoadBalancer().getDefaultStrategy();
+        this.invocationType = config.getLoadBalancer().getInvocationType();
         this.registry = new ProviderRegistryImpl(config.getRegistry());
     }
 
-    public LoadBalancerBuilder withBalancingStrategy(InvocationType invocationType) {
+    public LoadBalancerBuilder withBalancingInvocationType(InvocationType invocationType) {
         this.invocationType = invocationType;
         return this;
     }
