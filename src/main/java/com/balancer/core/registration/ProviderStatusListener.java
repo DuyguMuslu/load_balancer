@@ -1,4 +1,4 @@
-package com.balancer.core;
+package com.balancer.core.registration;
 
 import com.balancer.providers.Provider;
 import com.balancer.providers.ProviderStatus;

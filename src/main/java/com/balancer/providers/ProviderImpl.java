@@ -1,7 +1,7 @@
 package com.balancer.providers;
 
 import com.balancer.config.ConfigProvider;
-import com.balancer.core.ProviderStatusListener;
+import com.balancer.core.registration.ProviderStatusListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -2,7 +2,6 @@ package com.balancer.core.registration;
 
 import com.balancer.config.RegistryConfig;
 import com.balancer.config.errors.RegistryOperationException;
-import com.balancer.core.ProviderStatusListener;
 import com.balancer.providers.Provider;
 
 import java.util.List;
